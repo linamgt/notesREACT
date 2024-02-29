@@ -17,13 +17,21 @@ function App() {
     { id: 3, text: "troisième note "}
   ]);
 
+  function onRemoveBtnHandler(noteToDelete) {
+    console.log('hello', noteToDelete);
+    // on garde tous les notes qui ne sont pas celle à supprimer
+    const newNotes = notes.filter(note => note.id !== noteToDelete.id);
+    // const newNotes = notes.filter(note => note !== noteToDelete);
+    setNotes(newNotes);
+  }
+
   return (
     <>
       <h1>Application Notes</h1>
       <Counter></Counter>
       <AddNoteForm></AddNoteForm>
       <Filters></Filters>
-      <NoteList notesKey={notes}></NoteList>
+      <NoteList notes={notes} onRemoveBtn={onRemoveBtnHandler}></NoteList>
     </>
   );
 }

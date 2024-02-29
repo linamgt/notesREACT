@@ -1,9 +1,9 @@
-import NoteListItem from './NoteListItem';
+export default function NoteList({ notes, onRemoveBtn }) {
 
-export default function NoteList({ notes }) {
-
+    // Génération des li pour chaque note dons notes
     const listNotes = notes.map((note, index) =>
-    <li key={index}><NoteListItem note={note}></NoteListItem>
+    <li key={index}>{ note.text }
+    <button onClick={(event) => onRemoveBtn(note)}>x</button>
     </li>
     );
 
