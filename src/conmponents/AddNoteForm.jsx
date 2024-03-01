@@ -1,7 +1,9 @@
-export default function AddNoteForm() {
+
+export default function AddNoteForm(notes) {
     return (
         <form>
-            <imput type="text"></imput>
+            <imput type="text" />
         </form>
     )
+
 }

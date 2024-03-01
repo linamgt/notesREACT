@@ -28,9 +28,9 @@ function App() {
   return (
     <>
       <h1>Application Notes</h1>
-      <Counter></Counter>
-      <AddNoteForm></AddNoteForm>
-      <Filters></Filters>
+      <Counter />
+      <AddNoteForm />
+      <Filters />
       <NoteList notes={notes} onRemoveBtn={onRemoveBtnHandler}></NoteList>
     </>
   );
