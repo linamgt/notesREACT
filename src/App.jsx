@@ -1,24 +1,22 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Fragment, useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-import Counter from './conmponents/Counter';
-import Filters from './conmponents/Filters';
-import NoteList from './conmponents/NoteList';
-import AddNoteForm from './conmponents/AddNoteForm';
-
+import Counter from './components/Counter'
+import Filters from './components/Filters'
+import NoteList from './components/NoteList'
+import AddNotForm from './components/AddNoteForm'
 
 function App() {
 
   const [notes, setNotes] = useState([
-    { id: 1, text: "première note "},
-    { id: 2, text: "deuxième note "},
-    { id: 3, text: "troisième note "}
+    { id: 11, text: "première note" },
+    { id: 12, text: "deuxième note" },
+    { id: 33, text: "troisième note" }
   ]);
 
   function onRemoveBtnHandler(noteToDelete) {
-    console.log('hello', noteToDelete);
     // on garde tous les notes qui ne sont pas celle à supprimer
     const newNotes = notes.filter(note => note.id !== noteToDelete.id);
     // const newNotes = notes.filter(note => note !== noteToDelete);
@@ -29,11 +27,21 @@ function App() {
     <>
       <h1>Application Notes</h1>
       <Counter />
-      <AddNoteForm />
+      <AddNotForm />
       <Filters />
-      <NoteList notes={notes} onRemoveBtn={onRemoveBtnHandler}></NoteList>
+      <NoteList notes={notes}  onRemoveBtn={onRemoveBtnHandler} />
     </>
-  );
+  )
+
+  // const onListItemClickHandler = (e) => {
+  //   console.log(e);
+  // }
+
+  // return (
+  //   <Fragment>
+  //     <NoteList notes={notes} onListItemClick={onListItemClickHandler}></NoteList>
+  //   </Fragment>
+  // )
 }
 
-export default App;
+export default App
