@@ -12,6 +12,17 @@ import AddNoteForm from './components/AddNoteForm'
 
 function App() {
 
+  // loadNotes();
+
+  useEffect(() => {
+    fetch('http://localhost:3000/notes/')
+    .then(response => response.json())
+    .then(data => {
+      notesRAWSetter(data);
+      setNotes(data);
+    });
+  }, []);
+
   const pureNotes = [
     { id: 11, text: "première note" },
     { id: 12, text: "deuxième note" },
